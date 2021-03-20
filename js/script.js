@@ -6,18 +6,26 @@ const accod = document.querySelectorAll('.m-head')
 
 
 user.forEach(user =>{
+    
     if(screen.width < "1024"){
         user.dataset.target = "#userDetails";
         console.log(screen.width)
     }
     user.addEventListener('click', function(e){
+        removeActive()
         userDetails.classList.remove('active')
         let headTitle = this.querySelector("h1").innerText
         userName.innerText = headTitle
         userDetails.classList.add('active')
+        user.classList.add('active')
     })
     
 })
+function removeActive(){
+    user.forEach(user => {
+        user.classList.remove('active')
+    })
+}
 mobFilter.forEach(mobFilter =>{
     if(screen.width < "1024"){
         mobFilter.dataset.target = "#mobileModal";
